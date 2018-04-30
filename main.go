@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"github.com/sak0620/chaos/lib"
+)
 
 func main() {
-    fmt.Println("ハローワールド!!")
+	w := hello.HelloWorld("SaK")
+	fmt.Println(w)
 }
