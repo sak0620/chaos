@@ -5,11 +5,7 @@ jobs:
     docker:
       - image: circleci/golang:1.9
     environment:
-#          GOPATH: {{HOME}}/.go
-      ORG_NAME: origin
-      REPO_NAME: master
-#    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
-    working_directory: /go/src/github.com/origin/master
+    working_directory: /go/src/github.com/sak0620/chaos
     steps:
       - checkout
       - run: go get ./...
