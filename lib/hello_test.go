@@ -1,4 +1,4 @@
-package sample
+package hello
 
 import (
 	"testing"

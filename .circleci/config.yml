@@ -4,7 +4,13 @@ jobs:
   build:
     docker:
       - image: circleci/golang:1.9
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    environment:
+#          GOPATH: {{HOME}}/.go
+      ORG_NAME: origin
+      REPO_NAME: master
+#    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    working_directory: /go/src/github.com/origin/master
     steps:
       - checkout
-      - run: echo 'Hello World!!'
+      - run: go get ./...
+      - run: go test -v ./...
