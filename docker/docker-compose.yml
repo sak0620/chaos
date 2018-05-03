@@ -1,0 +1,24 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: ${PROJECT_NAME}-mysql
+    hostname: ${PROJECT_NAME}-mysql
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DBNAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init.d/mysql:/docker-entrypoint-initdb.d
+
+#  golang:
+#    image: golang:1.9.3-alpine3.7
+#tty: true
+#volumes:
+#      - ./:/go
+#    environment:
+#      - "GOPATH=/go"
